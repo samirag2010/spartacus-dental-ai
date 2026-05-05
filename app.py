@@ -1,70 +1,85 @@
+# app.py
+
 import streamlit as st
-from google import genai
-from google.genai import types
-import logging
+import pandas as pd
+from insurance_logic import analyze_procedure, PROCEDURE_RULES
 
-# --- Config ---
-PROJECT_ID = "spartacus-dental-2026"
-REGION = "us-central1"
 
-# Pick a model:
-# The codelab mentions gemini-2.5-flash, but you confirmed gemini-2.0-flash-001 works in your project.
-GEMINI_MODEL_NAME = "gemini-2.0-flash-001"
+st.set_page_config(
+    page_title="Spartacus Dental AI",
+    page_icon="🦷",
+    layout="centered"
+)
 
-temperature = 0.2
-top_p = 0.95
 
-system_instructions = """
-You are Spartacus, a dental insurance AI assistant.
-You help users understand dental coverage, benefits, deductibles, waiting periods, and pre-authorizations.
-Be concise, explain like a helpful clinic assistant, and add a short “next step” suggestion.
-Never request full SSNs or full insurance member IDs.
-"""
+st.title("🦷 Spartacus Dental AI Assistant")
+st.write(
+    "A rule-based AI-style assistant that estimates dental insurance coverage, "
+    "approval likelihood, and documentation needs."
+)
 
-# --- Initialize Vertex AI (GenAI client) ---
-try:
-    client = genai.Client(
-        vertexai=True,
-        project=PROJECT_ID,
-        location=REGION,
-    )
-    logging.info(f"VertexAI Client initialized with model {GEMINI_MODEL_NAME}")
-except Exception as e:
-    st.error(f"Error initializing VertexAI client: {e}")
-    st.stop()
+st.warning(
+    "Educational demo only. This tool does not provide real insurance determinations."
+)
 
-def call_model(prompt: str, model_name: str) -> str:
-    try:
-        response = client.models.generate_content(
-            model=model_name,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=temperature,
-                top_p=top_p,
-                system_instruction=system_instructions,
-            ),
-        )
-        return response.text
-    except Exception as e:
-        return f"Error: {e}"
 
-# --- Streamlit UI ---
-st.title("Spartacus: Dental Insurance Chatbot 🦷")
+st.divider()
 
-if "messages" not in st.session_state:
-    st.session_state["messages"] = [
-        {"role": "assistant", "content": "Hi, I’m Spartacus. What dental insurance question can I help with today?"}
-    ]
+st.header("Analyze a Dental Procedure")
 
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+procedure_code = st.text_input(
+    "Enter dental procedure code",
+    placeholder="Example: D2740"
+)
 
-if prompt := st.chat_input():
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    st.chat_message("user").write(prompt)
+insurance_provider = st.text_input(
+    "Enter insurance provider",
+    placeholder="Example: Aetna, Delta Dental, Cigna"
+)
 
-    with st.spinner("Spartacus is thinking..."):
-        model_response = call_model(prompt, GEMINI_MODEL_NAME)
+if st.button("Analyze Coverage"):
+    if not procedure_code:
+        st.error("Please enter a dental procedure code.")
+    else:
+        result = analyze_procedure(procedure_code, insurance_provider)
 
-    st.session_state.messages.append({"role": "assistant", "content": model_response})
-    st.chat_message("assistant").write(model_response)
+        st.subheader("Coverage Estimate")
+
+        st.write(f"**Procedure Code:** {result['procedure_code']}")
+        st.write(f"**Procedure Name:** {result['procedure_name']}")
+        st.write(f"**Insurance Provider:** {result['insurance_provider']}")
+        st.write(f"**Category:** {result['category']}")
+        st.write(f"**Estimated Coverage:** {result['estimated_coverage']}")
+        st.write(f"**Approval Likelihood:** {result['approval_likelihood']}")
+        st.write(f"**Notes:** {result['notes']}")
+
+        st.info(result["disclaimer"])
+
+
+st.divider()
+
+st.header("Demo Procedure Codes")
+
+demo_data = []
+
+for code, details in PROCEDURE_RULES.items():
+    demo_data.append({
+        "Code": code,
+        "Procedure": details["name"],
+        "Category": details["category"],
+        "Estimated Coverage": details["coverage"],
+        "Approval Likelihood": details["approval"]
+    })
+
+df = pd.DataFrame(demo_data)
+st.dataframe(df, use_container_width=True)
+
+
+st.divider()
+
+st.header("Project Purpose")
+st.write(
+    "Spartacus was designed to simulate how AI and structured data could help "
+    "dental clinics quickly understand insurance coverage, reduce manual lookup time, "
+    "and improve patient cost transparency."
+)
