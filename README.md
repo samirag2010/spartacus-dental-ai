@@ -4,8 +4,13 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
 ![AI](https://img.shields.io/badge/AI-Healthcare-success)
 
+## 🚀 Live Demo
+
+Try Spartacus here:
+https://spartacus-dental-ai.streamlit.app/
+
 ## Overview
-Spartacus is an AI-powered assistant designed to help dental clinics and patients quickly understand insurance coverage, treatment approvals, and estimated out-of-pocket costs.
+Spartacus is an AI-assisted dental insurance decision support system designed to help dental clinics and patients quickly understand insurance coverage, treatment approvals, and estimated out-of-pocket costs.
 
 The system simulates real-world insurance decision support by combining structured insurance data with AI-generated insights, reducing the time spent manually reviewing policies and documentation.
 
@@ -19,10 +24,6 @@ The system simulates real-world insurance decision support by combining structur
 ![Spartacus Demo](docs/spartacus-demo-unknown.png)
 ![Spartacus Demo](docs/spartacus-demo-procedure-codes.png)
 
-## 🚀 Live Demo
-
-Try Spartacus here:
-https://spartacus-dental-ai.streamlit.app/
 ---
 
 ## Problem Statement
@@ -39,6 +40,14 @@ This process is time-consuming, error-prone, and can lead to unexpected costs fo
 
 ---
 
+## Why This Matters
+
+Insurance verification is one of the most time-consuming administrative tasks in many dental clinics.
+
+Spartacus explores how AI-assisted workflow automation can help reduce manual lookup time, improve patient cost transparency, and streamline coverage estimation processes.
+
+---
+
 ## Solution
 Spartacus provides a simple interface where users input:
 
@@ -51,14 +60,6 @@ The system then generates:
 - Patient out-of-pocket cost insight
 - Approval likelihood
 - Required documentation notes
-
----
-
-## Why This Project Matters
-
-Dental clinics often spend significant time manually verifying insurance coverage and patient financial responsibility.
-
-Spartacus explores how AI-assisted workflow automation can help reduce administrative overhead, improve cost transparency, and streamline insurance estimation processes.
 
 ---
 
