@@ -13,17 +13,16 @@ The system simulates real-world insurance decision support by combining structur
 
 ## 🎥 Demo
 
-## 🚀 Live Demo
-
-Try Spartacus here:
-https://spartacus-dental-ai.streamlit.app/
-
 ![Spartacus Demo](docs/spartacus-D2740-demo.png)
 ![Spartacus Demo](docs/spartacus-D1110-demo.png)
 ![Spartacus Demo](docs/spartacus-D8080-demo.png)
 ![Spartacus Demo](docs/spartacus-demo-unknown.png)
 ![Spartacus Demo](docs/spartacus-demo-procedure-codes.png)
 
+## 🚀 Live Demo
+
+Try Spartacus here:
+https://spartacus-dental-ai.streamlit.app/
 ---
 
 ## Problem Statement
