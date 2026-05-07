@@ -1,5 +1,9 @@
 # 🦷 Spartacus: Dental Insurance AI Assistant
 
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![AI](https://img.shields.io/badge/AI-Healthcare-success)
+
 ## Overview
 Spartacus is an AI-powered assistant designed to help dental clinics and patients quickly understand insurance coverage, treatment approvals, and estimated out-of-pocket costs.
 
@@ -9,11 +13,16 @@ The system simulates real-world insurance decision support by combining structur
 
 ## 🎥 Demo
 
-![Spartacus Demo](docs/spartacus-demo-procedure-codes.png)
+## 🚀 Live Demo
+
+Try Spartacus here:
+https://spartacus-dental-ai.streamlit.app/
+
 ![Spartacus Demo](docs/spartacus-D2740-demo.png)
 ![Spartacus Demo](docs/spartacus-D1110-demo.png)
 ![Spartacus Demo](docs/spartacus-D8080-demo.png)
 ![Spartacus Demo](docs/spartacus-demo-unknown.png)
+![Spartacus Demo](docs/spartacus-demo-procedure-codes.png)
 
 ---
 
@@ -43,6 +52,14 @@ The system then generates:
 - Patient out-of-pocket cost insight
 - Approval likelihood
 - Required documentation notes
+
+---
+
+## Why This Project Matters
+
+Dental clinics often spend significant time manually verifying insurance coverage and patient financial responsibility.
+
+Spartacus explores how AI-assisted workflow automation can help reduce administrative overhead, improve cost transparency, and streamline insurance estimation processes.
 
 ---
 
@@ -96,22 +113,6 @@ The system then generates:
 - Patient Cost: Moderate to High  
 - Approval Likelihood: Medium  
 - Notes: Pre-authorization recommended  
-
----
-
-## How to Run
-
-### Option 1: Local (Recommended)
-
-1. Clone the repository:
-git clone https://github.com/samirag2010/spartacus-dental-ai.git  
-cd spartacus-dental-ai  
-
-2. Install dependencies:
-pip install -r requirements.txt  
-
-3. Run the app:
-streamlit run app.py  
 
 ---
 
