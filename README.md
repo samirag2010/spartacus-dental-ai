@@ -9,11 +9,10 @@ The system simulates real-world insurance decision support by combining structur
 
 ## 🎥 Demo
 
-![Spartacus Demo](docs/spartacus%20demo1.png)
-![Spartacus Demo](docs/spartacus%20demo2.png)
-![Spartacus Demo](docs/spartacus%20demo3.png)
-![Spartacus Demo](docs/spartacus%20demo%20with%20unknown.png)
-
+![Spartacus Demo](docs/spartacus-D2740-demo.png)
+![Spartacus Demo](docs/spartacus-D1110-demo.png)
+![Spartacus Demo](docs/spartacus-D8080-demo.png)
+![Spartacus Demo](docs/spartacus-demo-unknown.png)
 
 ---
 
