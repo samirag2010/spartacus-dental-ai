@@ -7,8 +7,16 @@ The system simulates real-world insurance decision support by combining structur
 
 ---
 
+## 🎥 Demo
+
+Live application and screenshots coming soon.
+
+---
+
 ## Problem Statement
-Dental clinics often face delays and inefficiencies when verifying insurance coverage. Staff must manually search through documents, spreadsheets, or outdated systems to determine:
+Dental clinics often spend significant time manually verifying insurance coverage and determining patient financial responsibility. This process can delay treatment decisions and create inefficiencies for both clinics and patients. 
+
+The process includes diving into:
 
 - Coverage percentages
 - Patient cost responsibility
@@ -56,31 +64,20 @@ The system then generates:
 - Streamlit
 - OpenAI API (or local LLM alternative)
 - JSON / Dictionary-based data layer
+- Rule-based logic system
+- Prompt engineering concepts
 
 ---
 
 ## How It Works
 
-1. User inputs procedure code and insurance provider  
-2. The system builds a structured prompt using the input data  
-3. The AI model generates coverage insights based on the prompt  
-4. The response is enhanced using predefined insurance rules  
-5. Results are displayed through a Streamlit interface  
-
----
-
-## Project Structure
-
-spartacus-dental-ai/
-
-├── app.py                  # Streamlit application  
-├── prompt_engine.py        # Prompt construction logic  
-├── data/  
-│   └── insurance_data.json # Basic insurance rules  
-├── utils/  
-│   └── ai_handler.py       # API interaction logic  
-├── requirements.txt  
-└── README.md  
+1. User enters a dental procedure code and insurance provider  
+2. Spartacus processes the input using structured logic  
+3. The system estimates:
+   - Coverage percentage
+   - Approval likelihood
+   - Patient financial responsibility
+4. Results are displayed through an interactive Streamlit interface
 
 ---
 
@@ -135,7 +132,7 @@ streamlit run app.py
 
 ## Portfolio Context
 
-This project is part of my Applied AI & Robotics portfolio at Houston City College, where I focus on building real-world AI applications in healthcare and business automation.
+Developed as part of my Applied AI & Robotics studies at Houston City College, with a focus on practical healthcare AI and workflow automation systems.
 
 ---
 
